@@ -114,7 +114,7 @@ FROM ${FLAVOR} AS archive
 COPY --from=cpu dist/lib/ollama /lib/ollama
 COPY --from=build /bin/ollama /bin/ollama
 
-FROM ubuntu:20.04
+FROM nvidia/cuda:12.6.3-runtime-ubuntu20.04
 RUN apt-get update \
     && apt-get install -y ca-certificates \
     && apt-get clean \
